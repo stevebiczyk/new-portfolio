@@ -11,7 +11,7 @@ export function HeroSection() {
       id="about"
       className="relative overflow-hidden border-b border-slate-800 bg-slate-900/70 hero-clip"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-fuchsia-500/10 via-transparent to-sky-500/10" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-tr from-fuchsia-500/10 via-transparent to-sky-500/10" />
 
       <div className="relative mx-auto flex max-w-5xl flex-col-reverse items-center gap-10 px-4 py-16 md:flex-row md:items-center md:px-8">
         {/* Left: text */}
@@ -44,12 +44,12 @@ export function HeroSection() {
 
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href={Bio.resume}
+              href={Bio.CV}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full max-w-xs items-center justify-center rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className="inline-flex w-full max-w-xs items-center justify-center rounded-full bg-linear-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
-              Check resume
+              See my CV
             </a>
           </div>
 

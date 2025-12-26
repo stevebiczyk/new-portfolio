@@ -10,9 +10,8 @@ export const Bio = {
   twitter: "https://twitter.com/BiczykSteve",
 
   // Keep your existing CV link, but expose it under the name the UI expects:
-  resume:
-    "https://drive.google.com/file/d/1SwBfqpUvr9UCDF4_2SDeP63sP8Di4RKz/view?usp=drive_link",
-  cv: "https://drive.google.com/file/d/1SwBfqpUvr9UCDF4_2SDeP63sP8Di4RKz/view?usp=drive_link",
+  CV: "https://drive.google.com/file/d/1_mIiZx4S_oibiHr5biiUL5i75qpZ5kCC/view",
+  cv: "https://drive.google.com/file/d/1_mIiZx4S_oibiHr5biiUL5i75qpZ5kCC/view",
 };
 
 export const skills = [
@@ -127,7 +126,7 @@ export const skills = [
       {
         name: "Git",
         image:
-          "https://e7.pngegg.com/pngimages/713/558/png-clipar…icons-pro-git-github-logo-text-logo-thumbnail.png",
+          "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
       },
       {
         name: "GitHub",
@@ -156,7 +155,7 @@ export const skills = [
       {
         name: "Postman",
         image:
-          "https://camo.githubusercontent.com/93b32389bf746009ca2370de7fe06c3b5146f4c99d99df65994f9ced0ba41685/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f676574706f73746d616e2f676574706f73746d616e2d69636f6e2e737667",
+          "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
       },
       // {
       //   name: "Adobe XD",
