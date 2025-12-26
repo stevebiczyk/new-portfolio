@@ -8,9 +8,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ProjectsSection />
       <SkillsSection />
       <ExperienceSection />
+      <ProjectsSection />
       {/* Later: EducationSection, ContactSection */}
     </>
   );
