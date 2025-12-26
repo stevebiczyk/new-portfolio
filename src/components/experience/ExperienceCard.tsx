@@ -1,9 +1,6 @@
 // src/components/experience/ExperienceCard.tsx
 "use client";
 
-import React from "react";
-import { VerticalTimelineElement } from "react-vertical-timeline-component";
-
 type Experience = {
   id?: number;
   img?: string;
@@ -12,48 +9,16 @@ type Experience = {
   date?: string;
   desc?: string;
   skills?: string[];
+  doc?: string;
 };
 
 export function ExperienceCard({ experience }: { experience: Experience }) {
-  const iconImg = experience.img;
-
   return (
-    <VerticalTimelineElement
-      icon={
-        iconImg ? (
+    <article className="rounded-2xl border border-slate-800 bg-slate-950/70 p-5 shadow-lg shadow-black/40">
+      <header className="flex gap-3">
+        {experience.img ? (
           <img
-            width="100%"
-            height="100%"
-            alt={
-              experience.company
-                ? `${experience.company} logo`
-                : experience.role
-            }
-            style={{ borderRadius: "9999px", objectFit: "cover" }}
-            src={iconImg}
-          />
-        ) : undefined
-      }
-      contentStyle={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        color: "#fff",
-        boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
-        backgroundColor: "rgba(17, 25, 40, 0.83)",
-        border: "1px solid rgba(255, 255, 255, 0.125)",
-        borderRadius: "16px",
-      }}
-      contentArrowStyle={{
-        borderRight: "7px solid rgba(255, 255, 255, 0.18)",
-      }}
-      date={experience.date}
-    >
-      {/* Top row */}
-      <div className="flex w-full gap-3">
-        {iconImg ? (
-          <img
-            src={iconImg}
+            src={experience.img}
             alt={
               experience.company
                 ? `${experience.company} logo`
@@ -66,47 +31,56 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
           <div className="mt-1 h-10 w-10 rounded-lg bg-slate-700/40 sm:h-12 sm:w-12" />
         )}
 
-        <div className="flex flex-1 flex-col">
-          <div className="text-base font-semibold text-slate-50 sm:text-lg">
+        <div className="flex-1">
+          <h3 className="text-base font-semibold text-slate-50 sm:text-lg">
             {experience.role}
+            {experience.company ? (
+              <span className="text-slate-300"> · {experience.company}</span>
+            ) : null}
+          </h3>
+
+          <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+            {experience.date ? (
+              <p className="text-[10px] font-medium uppercase tracking-wide text-slate-400 sm:text-xs">
+                {experience.date}
+              </p>
+            ) : null}
+
+            {experience.doc ? (
+              <a
+                href={experience.doc}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs font-semibold text-emerald-300 hover:text-emerald-200"
+              >
+                Proof / doc
+              </a>
+            ) : null}
           </div>
-
-          {experience.company ? (
-            <div className="text-xs font-medium text-slate-300 sm:text-sm">
-              {experience.company}
-            </div>
-          ) : null}
-
-          {experience.date ? (
-            <div className="text-[10px] font-medium uppercase tracking-wide text-slate-400 sm:text-xs">
-              {experience.date}
-            </div>
-          ) : null}
         </div>
-      </div>
+      </header>
 
-      {/* Description + skills */}
-      <div className="text-sm text-slate-200">
-        {experience.desc ? (
-          <p className="leading-relaxed">{experience.desc}</p>
-        ) : null}
+      {experience.desc ? (
+        <p className="mt-3 text-sm leading-relaxed text-slate-300">
+          {experience.desc}
+        </p>
+      ) : null}
 
-        {experience.skills && experience.skills.length > 0 ? (
-          <div className="mt-3">
-            <div className="text-xs font-semibold text-slate-100">Skills</div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {experience.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-300"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+      {experience.skills && experience.skills.length > 0 ? (
+        <div className="mt-4">
+          <div className="text-xs font-semibold text-slate-200">Skills</div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {experience.skills.map((s) => (
+              <span
+                key={s}
+                className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-300"
+              >
+                {s}
+              </span>
+            ))}
           </div>
-        ) : null}
-      </div>
-    </VerticalTimelineElement>
+        </div>
+      ) : null}
+    </article>
   );
 }
