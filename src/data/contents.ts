@@ -4,7 +4,8 @@ export const Bio = {
   name: "Istvan Biczyk",
   roles: ["Full-stack Web Developer", "Software Developer"],
   description:
-    "I’m a web and software developer focused on building small, production-ready web applications and modern, responsive websites. I work primarily with React, Next.js, and Python, and I enjoy taking projects from rough idea through design, implementation, and deployment. Recently I’ve been working on freelance projects and personal products, helping clients and collaborators ship clean, maintainable solutions.",
+    "I’m a web and software developer focused on building fast, production-ready web applications and modern, responsive websites. I work primarily with React, Next.js, and Python, and I enjoy taking projects from rough idea through design, implementation, and deployment. Recently I’ve been working on freelance projects and personal products, helping clients and collaborators ship clean, maintainable solutions.",
+  email: "stevebiczyk@gmail.com",
   github: "https://github.com/stevebiczyk",
   linkedin: "https://www.linkedin.com/in/istvan-biczyk/",
   twitter: "https://twitter.com/BiczykSteve",
@@ -125,8 +126,7 @@ export const skills = [
     skills: [
       {
         name: "Git",
-        image:
-          "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
+        image: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
       },
       {
         name: "GitHub",
