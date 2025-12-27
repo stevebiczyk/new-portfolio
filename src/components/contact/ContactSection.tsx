@@ -7,27 +7,53 @@ type FormState = {
   name: string;
   email: string;
   message: string;
+  website?: string; // honeypot field
 };
-
-function buildMailto({ name, email, message }: FormState) {
-  const to = Bio.email ?? "";
-  const subject = encodeURIComponent(
-    `Portfolio inquiry — ${name || "New message"}`
-  );
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`
-  );
-  return `mailto:${to}?subject=${subject}&body=${body}`;
-}
 
 export function ContactSection() {
   const [form, setForm] = React.useState<FormState>({
     name: "",
     email: "",
     message: "",
+    website: "",
   });
 
-  const canSend = form.name.trim() && form.email.trim() && form.message.trim();
+  const [status, setStatus] = React.useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
+  const [error, setError] = React.useState<string>("");
+
+  const canSend =
+    form.name.trim() &&
+    form.email.trim() &&
+    form.message.trim() &&
+    status !== "sending";
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("sending");
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok || !data?.ok) {
+        setStatus("error");
+        setError(data?.error || "Something went wrong. Please try again.");
+        return;
+      }
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "", website: "" });
+    } catch {
+      setStatus("error");
+      setError("Something went wrong. Please try again.");
+    }
+  }
 
   return (
     <section
@@ -38,19 +64,19 @@ export function ContactSection() {
       <div className="mx-auto max-w-5xl px-4 pb-16 md:px-8">
         <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-lg shadow-black/40 sm:p-10">
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
-            {/* Left: copy + links */}
+            {/* Left */}
             <div>
               <h2
                 id="contact-heading"
                 className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl"
               >
-                Let’s work together
+                Let’s work together!
               </h2>
 
               <p className="mt-3 text-sm text-slate-300 sm:text-base">
-                If you’re hiring or you need a developer for a modern web app or
-                a personal or business website, send a message and I’ll get back
-                to you.
+                Are you hiring or do you need a developer for a modern web
+                application, a personal or business website? Send a message and
+                I’ll get back to you.
               </p>
 
               <ul className="mt-6 space-y-3 text-sm">
@@ -97,16 +123,21 @@ export function ContactSection() {
             </div>
 
             {/* Right: form */}
-            <form
-              className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                // Simple, no-backend “send”: open the user’s email client.
-                // Later we can swap this for a real endpoint without changing UI.
-                if (!Bio.email) return;
-                window.location.href = buildMailto(form);
-              }}
-            >
+            <form className="space-y-4" onSubmit={onSubmit}>
+              {/* Honeypot field - hidden */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  id="website"
+                  type="text"
+                  value={form.website}
+                  onChange={(e) =>
+                    setForm((p) => ({ ...p, website: e.target.value }))
+                  }
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <div>
                 <label
                   className="text-xs font-medium text-slate-200"
@@ -168,18 +199,30 @@ export function ContactSection() {
                 />
               </div>
 
+              {status === "sent" ? (
+                <p className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
+                  Message sent — thanks! I’ll reply as soon as I can.
+                </p>
+              ) : null}
+
+              {status === "error" ? (
+                <p className="rounded-xl border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-sm text-rose-200">
+                  {error}
+                </p>
+              ) : null}
+
               <div className="flex flex-wrap gap-3">
                 <button
                   type="submit"
-                  disabled={!canSend || !Bio.email}
+                  disabled={!canSend}
                   className={[
                     "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition",
-                    canSend && Bio.email
+                    canSend
                       ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400"
                       : "cursor-not-allowed bg-slate-800 text-slate-400",
                   ].join(" ")}
                 >
-                  Send message
+                  {status === "sending" ? "Sending…" : "Send message"}
                 </button>
 
                 {Bio.email ? (
@@ -189,24 +232,8 @@ export function ContactSection() {
                   >
                     Email me directly
                   </a>
-                ) : (
-                  <a
-                    href={Bio.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-emerald-400 hover:text-emerald-300"
-                  >
-                    Message on LinkedIn
-                  </a>
-                )}
+                ) : null}
               </div>
-
-              {!Bio.email ? (
-                <p className="text-xs text-slate-400">
-                  Tip: add <code className="text-slate-300">Bio.email</code> to
-                  enable the mailto form. For now, LinkedIn is the fastest path.
-                </p>
-              ) : null}
             </form>
           </div>
         </div>
