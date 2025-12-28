@@ -57,7 +57,7 @@ export function HeroSection() {
           <dl className="mt-4 grid gap-4 text-xs text-slate-400 sm:grid-cols-3">
             <div>
               <dt className="font-medium text-slate-200">What I build</dt>
-              <dd>Personal sites, blogs, small e-commerce</dd>
+              <dd>Personal websites, blogs, modern e-commerce applications</dd>
             </div>
             <div>
               <dt className="font-medium text-slate-200">Core stack</dt>

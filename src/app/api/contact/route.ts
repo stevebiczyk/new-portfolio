@@ -67,7 +67,7 @@ export async function POST(req: Request) {
     });
 
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
-  } catch (err) {
+  } catch (error) {
     return new Response(
       JSON.stringify({ ok: false, error: "Failed to send message." }),
       { status: 500 }

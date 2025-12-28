@@ -1,4 +1,3 @@
-// src/components/projects/ProjectsSection.tsx
 "use client";
 
 import React from "react";

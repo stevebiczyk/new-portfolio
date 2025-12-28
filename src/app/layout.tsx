@@ -4,7 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar/NavBar";
 
 export const metadata: Metadata = {
-  title: "Your Name – Web Developer (React, Next.js, Python)",
+  title: "Istvan Biczyk – Web Developer (React, Next.js, Python)",
   description:
     "Web and software developer building fast, clean web applications with React, Next.js, and Python. Available for full-time roles and freelance work.",
 };

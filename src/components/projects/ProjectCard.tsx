@@ -1,5 +1,3 @@
-// src/components/projects/ProjectCard.tsx
-
 type ProjectMember = {
   name: string;
   img?: string;
