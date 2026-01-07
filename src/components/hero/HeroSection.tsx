@@ -60,12 +60,12 @@ export function HeroSection() {
               <dd>Personal websites, blogs, modern e-commerce applications</dd>
             </div>
             <div>
-              <dt className="font-medium text-slate-200">Core stack</dt>
+              <dt className="font-medium text-slate-200">My core stack</dt>
               <dd>React, Next.js, TypeScript, Python</dd>
             </div>
             <div>
               <dt className="font-medium text-slate-200">How I work</dt>
-              <dd>Design → build → deploy</dd>
+              <dd>Design → build → deploy → maintain</dd>
             </div>
           </dl>
         </div>

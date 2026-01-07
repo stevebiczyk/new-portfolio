@@ -2,7 +2,7 @@ export const Bio = {
   name: "Istvan Biczyk",
   roles: ["Full-stack Web Developer", "Software Developer"],
   description:
-    "I’m a web and software developer focused on building modern, production-ready web applications and fast, responsive websites. I work primarily with React, Next.js, and Python, and I enjoy taking projects from the initial idea through design, implementation, and deployment. Recently I’ve been working on freelance projects and personal products, helping clients and collaborators ship clean, maintainable solutions.",
+    "I’m a web and software developer focused on building modern, production-ready web applications and fast, responsive websites. I work primarily with React, Next.js, and Python, and I enjoy taking projects from the initial idea through design, implementation, and deployment. Recently I’ve been working on freelance and personal projects, helping clients by creating clean, maintainable web solutions.",
   email: "stevebiczyk@gmail.com",
   github: "https://github.com/stevebiczyk",
   linkedin: "https://www.linkedin.com/in/istvan-biczyk/",
@@ -10,7 +10,7 @@ export const Bio = {
 
   // Both uppercase and lowercase keys for CV link
   CV: "https://drive.google.com/file/d/1_mIiZx4S_oibiHr5biiUL5i75qpZ5kCC/view",
-  cv: "https://drive.google.com/file/d/1_mIiZx4S_oibiHr5biiUL5i75qpZ5kCC/view",
+  // cv: "https://drive.google.com/file/d/1_mIiZx4S_oibiHr5biiUL5i75qpZ5kCC/view",
 };
 
 export const skills = [
@@ -32,6 +32,10 @@ export const skills = [
         image:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTklEQVR4Ab1XAaQqURB9DyohSykREpRIQSAlBCoECKUFCSRCBBEAaSEABQEoCIEASCwAUICALgCo83do0//9v819XX845O7VnDkzOzP7JWGaBd3C3IJpQVjAHeJ+Rs9a97vKLGrBsB1KgMhEP3FMUUwt4ENMfxr1yQIU4SSjRkbeOZtERmHk6pXQVDlnkHh9S+QLTm1hkiz4n/gzFQuny9FoFLquE+i34x+n02k0m00UCoV3BIzn3MMJrVYLtp1OJ0cS/X4f5/MZhmG8IyDsWtDfEaDIn2232/3zbrvdxuFwwGg04qRBt+VnETBNE0IIkE2n07/erdfrWK/X6Ha73Hb9ZXII3G43ivy3dNRqtZe7lUoFs9mM6oBDwCQCgquALT1FT3a5XF7qIZ/PYzgcolqtcggIIgBZAgRKB6lCRalp2uM8k8mAVMrlchwC+DEBipycE4n5fP44j8ViKJVKSCaTbAJCpgaez4vFIsjoWa/XA50FAgEkEgmEw2F2CkxZBZ5Br5tt1ITcbjd8Ph88Hg+7CBefECCsVitS4aVJcV9D/VMCVITk/Hq9YrPZyBBo2a1YMGvAcQYcj0cCtWMugcdYNhjDiBrP25mx3++x3W6RzWZZ8isfxzQLlsslJpMJpYY5jhkqcOH1ejEYDDAej9FoNOByuZxGsfqVzC7KTqcDSkkqleKsZOqX0mAwiHK5DGrJfr+fs5SqX8sjkQji8ThCoRC+v78Za7l6JagrUh3YkUuZpqgwDaecc9VYSDoV5Fg+at7n+eLN57kuE/EvzHr/Kvs31aYAAAAASUVORK5CYII=",
       },
+      // {
+      //   name: "Astro",
+      //   image: "https://astro.build/assets/astro-logo-dark.e37f2d3d.png",
+      // },
       {
         name: "HTML",
         image: "https://www.w3.org/html/logo/badge/html5-badge-h-solo.png",
@@ -45,6 +49,11 @@ export const skills = [
         name: "JavaScript",
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
+      },
+      {
+        name: "TypeScript",
+        image:
+          "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
       },
       {
         name: "Bootstrap",
@@ -113,10 +122,6 @@ export const skills = [
         name: "Firebase",
         image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
       },
-      {
-        name: "AWS",
-        image: "https://cdn.worldvectorlogo.com/logos/aws-2.svg",
-      },
     ],
   },
 
@@ -137,6 +142,10 @@ export const skills = [
         name: "Docker",
         image:
           "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+      },
+      {
+        name: "AWS",
+        image: "https://cdn.worldvectorlogo.com/logos/aws-2.svg",
       },
       {
         name: "Heroku",
@@ -168,6 +177,11 @@ export const skills = [
         name: "Jest",
         image:
           "https://raw.githubusercontent.com/devicons/devicon/master/icons/jest/jest-plain.svg",
+      },
+      {
+        name: "PlayWright",
+        image:
+          "https://images.seeklogo.com/logo-png/43/2/playwright-logo-png_seeklogo-435674.png",
       },
     ],
   },
@@ -244,7 +258,7 @@ export const projects = [
       "Firebase",
     ],
     category: "web app",
-    github: "https://github.com/stevebiczyk",
+    github: "https://github.com/stevebiczyk/crown-clothing",
     webapp: "https://crown-clothing-ib.netlify.app",
   },
   {
@@ -271,8 +285,8 @@ export const projects = [
       "Pillow",
     ],
     category: "web app",
-    github: "https://github.com/stevebiczyk",
-    webapp: "https://trackify.duckdns.org",
+    github: "https://github.com/stevebiczyk/djangobnb",
+    webapp: "https://crown-clothing-ib.netlify.app",
   },
   {
     id: 2,
@@ -294,7 +308,7 @@ export const projects = [
       "Firebase",
     ],
     category: "web app",
-    github: "https://github.com/stevebiczyk",
+    github: "https://github.com/stevebiczyk/pp5-recipe-share-sb",
     webapp: "https://recipe-share-sb-38760b27e610.herokuapp.com/",
   },
   {
@@ -307,22 +321,8 @@ export const projects = [
       "https://user-images.githubusercontent.com/64485885/234602896-a1bd8bcc-b72b-4821-83d6-8ad885bf435e.png",
     tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux"],
     category: "web app",
-    github: "https://github.com/stevebiczyk",
-    webapp: "https://podstream.netlify.app/",
-    member: [
-      {
-        name: "Istvan Biczyk",
-        img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-        linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-        github: "https://github.com/stevebiczyk",
-      },
-      // {
-      //   name: "Upasana Chaudhuri",
-      //   img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-      //   linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-      //   github: "https://github.com/upasana0710",
-      // },
-    ],
+    github: "https://github.com/stevebiczyk/flask-blog-app",
+    webapp: "https://crown-clothing-ib.netlify.app",
   },
 ];
 

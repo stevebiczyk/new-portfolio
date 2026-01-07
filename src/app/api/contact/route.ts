@@ -67,6 +67,7 @@ export async function POST(req: Request) {
     });
 
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return new Response(
       JSON.stringify({ ok: false, error: "Failed to send message." }),
